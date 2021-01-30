@@ -7,26 +7,28 @@ const ctx=cnvs.getContext('2d');
 var w=cnvs.width=innerWidth;
 var h=cnvs.height=innerHeight;
 
-const aud=new Audio("./music.mp3");
-// aud.crossOrigin='Anonymous';
+const aud=new Audio("https://cors-anywhere.herokuapp.com/https://github.com/PrashanthKumar0/Fire-Audio-Visualizer/blob/master/music.mp3?raw=true");
+aud.crossOrigin='Anonymous';
 aud.controls=true;
 document.body.appendChild(aud);
+aud.onloadeddata=addListeners;
+function addListeners(){
+    $('ldr').style.display="none";
+    
+    cnvs.onclick=function() {
+        init();
+        aud.play();
+        cnvs.onclick=null;
+        aud.onplay=null;
+    };
 
-
-cnvs.onclick=function() {
-    init();
-    aud.play();
-    cnvs.onclick=null;
-    aud.onplay=null;
-};
-
-aud.onplay=function() {
-    init();
-    aud.play();
-    cnvs.onclick=null;
-    aud.onplay=null;
-};
-
+    aud.onplay=function() {
+        init();
+        aud.play();
+        cnvs.onclick=null;
+        aud.onplay=null;
+    };
+}
 var audCtx,analyser,audSrc,arr;
 
 

@@ -2,7 +2,7 @@ body{
     margin:0;
     background: #000;
     position: relative;
-    background: url("./img-bg.jpg"),rgba(0,0,0,0.85);
+    background: url("https://github.com/PrashanthKumar0/Fire-Audio-Visualizer/blob/master/img-bg.jpg?raw=true"),rgba(0,0,0,0.85);
     background-blend-mode: overlay;
     background-size: cover;
 }
@@ -37,4 +37,34 @@ img{
     100%{
         transform: translate(-50%,-50%) rotate(360deg);
     }
+}
+
+div#ldr{
+    width:250px;
+    height:250px;
+    background:#fff;
+    position:fixed;
+    top:50%;
+    left:50%;
+    z-index:100;
+    font-size:2rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:translate(-50%,-50%);
+    border-radius:10px;
+}
+div#ldr>b { position:relative; }
+div#ldr>b::after{
+    content:"";
+    display:block;
+    position:absolute ;
+    bottom:-100px;
+    left:50%;
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    border:4px solid #555;
+    border-left:4px solid transparent;
+    animation:1.5s cubic-bezier(.34,.27,.52,1.11) spin infinite;
 }
